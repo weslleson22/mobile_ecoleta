@@ -1,7 +1,8 @@
 import React from 'react';
+import {Feather as Icon} from '@expo/vector-icons';
 
 import {View, Image, StyleSheet, Text, ImageBackground,} from 'react-native';
-
+import{RectButton} from 'react-native-gesture-handler';
 /*42:21 
 usar esse comando 
 expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
@@ -19,7 +20,18 @@ const Home = ()=>{
         </View>
 
         <View style={styles.footer}>
+        <RectButton style={styles.button} onPress={()=>{}}>
+          <View style={styles.buttonIcon}>
 
+          <Text>
+            <Icon name="arrow-right" color="#FFF" size={24} />
+          </Text>
+          </View>
+          <Text style={styles.buttonText}>
+            Entrada
+          </Text>
+
+        </RectButton>
         </View>
     </ImageBackground>
     );
