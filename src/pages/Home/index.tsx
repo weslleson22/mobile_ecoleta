@@ -3,11 +3,19 @@ import {Feather as Icon} from '@expo/vector-icons';
 
 import {View, Image, StyleSheet, Text, ImageBackground,} from 'react-native';
 import{RectButton} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
+
 /*42:21 
 usar esse comando 
 expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
 */
 const Home = ()=>{
+  const navigation = useNavigation();
+
+  function handleNavigateToPoints(){
+    navigation.navigate('Points');
+  }
+
     return(
     <ImageBackground source={require('../../assets/home-background.png')} 
     style={styles.container}
@@ -20,7 +28,7 @@ const Home = ()=>{
         </View>
 
         <View style={styles.footer}>
-        <RectButton style={styles.button} onPress={()=>{}}>
+        <RectButton style={styles.button} onPress={handleNavigateToPoints}>
           <View style={styles.buttonIcon}>
 
           <Text>
