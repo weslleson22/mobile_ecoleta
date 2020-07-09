@@ -2,14 +2,18 @@ import React from 'react';
 import Constants from 'expo-constants';
 import {Feather as Icon} from '@expo/vector-icons';
 import {useNavigation} from '@react-navigation/native';
-import {View, Text, StyleSheet, TouchableOpacity, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView, Image} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';//o Marker é para colocar um ponto no mapa
 import {SvgUri} from 'react-native-svg';
+import Detail from '../Detail';
 const Points = ()=>{
     const navigation = useNavigation();
     function handleNavigateBack(){
             navigation.goBack();
     }
+    function handleNavigateDetail(){
+        navigation.navigate('Detail');
+}
     return (
         <>
             <View style={styles.container}>
@@ -29,7 +33,23 @@ const Points = ()=>{
                         longitudeDelta:0.010,
                     }}
                     
-                    />
+                    >
+                    <Marker
+                    style={styles.mapMarker}
+                    onPress={handleNavigateDetail}
+                    coordinate={{
+                        
+                         latitude:-2.038658, 
+                         longitude:-45.961553,
+                    }}>
+
+                   <View style={styles.mapMarkerContainer}>
+                   <Image style={styles.mapMarkerImage} source={{uri:'https://images.unsplash.com/photo-1556767576-5ec41e3239ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60'}}/>
+                   <Text style={styles.mapMarkerTitle}>Mercado</Text>
+                   </View>
+
+                    </Marker>
+                    </MapView>
                 </View>
             </View>
             <View style={styles.itemsContainer}>
