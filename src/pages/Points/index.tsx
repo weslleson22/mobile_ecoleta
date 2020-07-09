@@ -2,8 +2,9 @@ import React from 'react';
 import Constants from 'expo-constants';
 import {Feather as Icon} from '@expo/vector-icons';
 import {useNavigation} from '@react-navigation/native';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import MapView from 'react-native-maps';
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView} from 'react-native';
+import MapView, {Marker} from 'react-native-maps';//o Marker é para colocar um ponto no mapa
+import {SvgUri} from 'react-native-svg';
 const Points = ()=>{
     const navigation = useNavigation();
     function handleNavigateBack(){
@@ -14,15 +15,58 @@ const Points = ()=>{
             <View style={styles.container}>
                 <TouchableOpacity onPress={handleNavigateBack}>
                     <Icon name="arrow-left" size={20} color ="#34cb79"/>
-
+                </TouchableOpacity>
                     <Text style={styles.title}>Bem Vindo</Text>
                     <Text style={styles.description}>Encontre no mapa um ponto de coleta</Text>
-                </TouchableOpacity>
+
                 <View style={styles.mapContainer}>
-                    <MapView style={styles.map}></MapView>
+                    <MapView 
+                    style={styles.map}
+                    initialRegion={{
+                        latitude:-2.038658, 
+                        longitude:-45.961553,
+                        latitudeDelta: 0.010,
+                        longitudeDelta:0.010,
+                    }}
+                    
+                    />
                 </View>
-            </View>);
-    </>
+            </View>
+            <View style={styles.itemsContainer}>
+                <ScrollView 
+                horizontal showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{paddingHorizontal:20}}//contentContainerStyle é para fazer as imagens fazerem parte do conteudo 
+                >
+                    <TouchableOpacity style={styles.item} onPress={()=>{}}>
+                        <SvgUri width={42} height={42} uri="http://192.168.100.74:3333/uploads/lampadas.svg"/>
+                        <Text style={styles.itemTitle}>Lâmpadas</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.item} onPress={()=>{}}>
+                        <SvgUri width={42} height={42} uri="http://192.168.100.74:3333/uploads/lampadas.svg"/>
+                        <Text style={styles.itemTitle}>Lâmpada</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.item} onPress={()=>{}}>
+                        <SvgUri width={42} height={42} uri="http://192.168.100.74:3333/uploads/lampadas.svg"/>
+                        <Text style={styles.itemTitle}>Lâmpadas</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.item} onPress={()=>{}}>
+                        <SvgUri width={42} height={42} uri="http://192.168.100.74:3333/uploads/lampadas.svg"/>
+                        <Text style={styles.itemTitle}>Lâmpadas</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.item} onPress={()=>{}}>
+                        <SvgUri width={42} height={42} uri="http://192.168.100.74:3333/uploads/lampadas.svg"/>
+                        <Text style={styles.itemTitle}>Lâmpadas</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.item} onPress={()=>{}}>
+                        <SvgUri width={42} height={42} uri="http://192.168.100.74:3333/uploads/lampadas.svg"/>
+                        <Text style={styles.itemTitle}>Lâmpadas</Text>
+                    </TouchableOpacity>
+                </ScrollView>
+            </View>
+            </>
+    );
 
 };
 const styles = StyleSheet.create({
