@@ -25,6 +25,7 @@ const Home = ()=>{
        <Image source={require('../../assets/logo.png')}/>
        <Text style={styles.title}>Seu marketplace de coleta de resíduos</Text>
        <Text style={styles.description}>Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente</Text>
+       <Text style={styles.description}>______________________________________</Text>
         </View>
 
         <View style={styles.footer}>
@@ -45,7 +46,7 @@ const Home = ()=>{
     );
 };
 
-export default Home;
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -115,3 +116,4 @@ const styles = StyleSheet.create({
       fontSize: 16,
     }
   });
+  export default Home;

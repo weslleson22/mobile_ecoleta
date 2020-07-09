@@ -1,12 +1,17 @@
 import React from 'react';
-import {View} from 'react-native';
+import Constants from 'expo-constants';
+import {Feather as Icon} from '@expo/vector-icons';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
 
 const Points = ()=>{
-    return <View/>;
+    return (
+    <View style={styles.container}>
+        <TouchableOpacity>
+            <Icon name="arrow-left" size={20} color ="#34cb79"/>
+        </TouchableOpacity>
+    </View>);
 
 };
-
-export default Points;
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -103,3 +108,5 @@ const styles = StyleSheet.create({
       fontSize: 13,
     },
   });
+
+export default Points;
