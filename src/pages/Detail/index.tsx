@@ -1,17 +1,22 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Constants from 'expo-constants';
 import {Feather as Icon, FontAwesome} from '@expo/vector-icons';
 import {useNavigation} from '@react-navigation/native';
-import {View, Text, StyleSheet, TouchableOpacity, ScrollView, Image} from 'react-native';
-
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView, Image, SafeAreaView} from 'react-native';
+//
 import{RectButton} from 'react-native-gesture-handler';
 const Detail = ()=>{
     const navigation = useNavigation();
+
+  useEffect(()=>{
+
+  },[]);
+
     function handleNavigateBack(){
             navigation.goBack();
     }
     return(
-        <>
+        <SafeAreaView style={{flex:1}}> 
         <View style={styles.container}>
               <TouchableOpacity onPress={handleNavigateBack}>
                     <Icon name="arrow-left" size={20} color ="#34cb79"/>
@@ -40,7 +45,7 @@ const Detail = ()=>{
                 </RectButton>
             </View>
          
-         </>
+         </SafeAreaView>
          );
 
 };
